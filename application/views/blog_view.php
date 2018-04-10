@@ -7,20 +7,17 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-warning mb-4">
-      <a class="navbar-brand" href="#">My Jobs'</a>
+      <a class="navbar-brand" href="<?php echo base_url("index.php/Blog") ?>">My Jobs'</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo base_url("index.php/Blog") ?>">Home<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Contact<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Berita<span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url("index.php/Blog") ?>">Blog</a>
           </li>
         </ul>
         
@@ -28,11 +25,16 @@
     </nav>
     <main role="main" class="container">
 <div class="row">
-        <div class="col">
-          <h1><?php echo $records[0]['title'] ?></h1>
+       <h1 class="text-center"><?php echo $records[0]['title'] ?></h1>
+   <h6 class="text-muted">Tanggal : <?php echo  $records[0]['date']  ?></h6>
+   <div class="row">
+          <div class="col-2"> </div>
+          <div class="col-8"> 
+    <img src="<?php echo  base_url() ?>uploads/<?php echo $records[0]['image_file']  ?>" alt=" " class="">
+          </div>
+          <div class="col-2"> </div>
           <p><?php echo $records[0]['content'] ?></p>
         </div>
-      </div>
     </main>
 
 <script src="https://code.jquery.com/<jquery-3 class="2 1 slim m"></jquery-3>in.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

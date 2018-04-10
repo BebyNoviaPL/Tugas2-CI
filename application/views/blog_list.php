@@ -7,22 +7,20 @@
 </head>
 <body>
 	 <nav class="navbar navbar-expand-md navbar-dark bg-warning mb-4">
-      <a class="navbar-brand" href="#">My Jobs'</a>
+      <a class="navbar-brand" href="<?php echo base_url("index.php/Blog") ?>">My Jobs'</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url("index.php/Blog") ?>">Home</a>
           </li>
           
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url("index.php/Blog") ?>">Blog</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Berita<span class="sr-only">(current)</span></a>
-          </li>
+          
         </ul>
         
       </div>
@@ -31,7 +29,7 @@
 <ul class="list-unstyled">
   <?php foreach ($records as $key => $value): ?>
    <li class="media">
-    <img class="mr-3" src="http://2.bp.blogspot.com/-NBHPU2GYupE/VU7cOUlO-XI/AAAAAAAAJRg/h76CEfX96BE/s1600/gambar%2Bhati%2B(5).jpg" alt="Generic placeholder image" width="100px" height="150px">
+   <img class="mr-3" src="<?php echo base_url() ?>uploads/<?php echo $value['image_file'] ?>" alt="Generic placeholder image" width="100px" height="150px">
     <div class="media-body">
     <h6 class="text-muted"><?php echo $value['date'] ?></h6>
       <h5 class="mt-0 mb-1"><?php echo $value['title'] ?></h5>
