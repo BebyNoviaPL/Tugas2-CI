@@ -19,44 +19,28 @@
          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url("index.php/Blog") ?>">Blog</a>
           </li>
-         
+         <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url("index.php/category") ?>">Kategory</a>
+          </li>
         </ul>
         
       </div>
     </nav>
     <main role="main" class="container">
-      <div class="row">
-        <div class="col">
-         <?php echo  validation_errors() ?>
-        <?php echo form_open_multipart('Blog/add_view');?>
-            <div class="form-group">
-    <label for="id">Id</label>
-    <input type="text" class="form-control" id="id" name="id" placeholder="Id">
-  </div>
-  <div class="form-group">
-    <label for="author">Author</label>
-    <input type="text" class="form-control" id="author" name="author" placeholder="Author">
-  </div>
+      <?php echo form_open( 'category/create', array('class' => 'needs-validation', 'novalidate' => '') ); ?>
+
 <div class="form-group">
-    <label for="date">Date</label>
-    <input type="date" class="form-control" id="date" name="date" placeholder="Date">
-  </div>
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
-  </div>
-  <div class="form-group">
-    <label for="content">Content</label>
-    <input type="text" class="form-control" id="content" name="content" placeholder="Content">
-  </div>
- <div class="form-group">
-    <label for="image_file">Image</label>
-    <input type = "file" name = "image_file" size = "20" /> 
-  </div>
-  <input type="submit" name="add" value="Tambah" class="btn btn-success">
-          </form>
-        </div>
-      </div>
+   <label for="cat_name">Nama Kategori</label>
+   <input type="text" class="form-control" name="cat_name" value="<?php echo set_value('cat_name') ?>" required>
+   <div class="invalid-feedback">Isi judul dulu gan</div>
+</div>
+
+<div class="form-group">
+   <label for="text">Deskripsi</label>
+   <input type="text" class="form-control" name="cat_description" value="<?php echo set_value('cat_description') ?>" required>
+   <div class="invalid-feedback">Isi deskripsinya dulu gan</div>
+</div>
+<button id="submitBtn" type="submit" class="btn btn-primary">Simpan</button>
     </main>
 
 <script src="https://code.jquery.com/<jquery-3 class="2 1 slim m"></jquery-3>in.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

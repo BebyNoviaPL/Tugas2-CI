@@ -132,4 +132,6 @@ class blog extends CI_Controller {
   $this->Blog_model->delete($id);
   redirect('Blog');
  }
+
+
 }

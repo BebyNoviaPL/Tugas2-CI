@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('biodata_model','Blog_model');
+$autoload['model'] = array('Category_model');
