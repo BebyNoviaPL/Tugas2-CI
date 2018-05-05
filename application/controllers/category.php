@@ -14,6 +14,42 @@ public function __construct()
         $this->load->model('Category_Model');
     }
 
+    public function read() 
+ { 
+  $data['cat_read'] = $this->Category_Model->read_category(); 
+  $this->load->view('cat_read',$data); 
+ }
+public function update($id) 
+ { 
+  $this->load->helper('form'); 
+  $this->load->library('form_validation'); 
+
+  // Form validasi untuk Nama Kategori 
+  $this->form_validation->set_rules( 
+   'cat_name', 
+   'Nama Kategori', 
+   'required|is_unique[categories.cat_name]', 
+   array( 
+    'required' => 'Isi %s donk, males amat.', 
+    'is_unique' => 'Judul <strong>' . $this->input->post('cat_name') . '</strong> sudah ada bosque.' 
+   ) 
+  ); 
+  $data['cat_update'] = $this->Category_Model->read_category($id)[0]; 
+  if($this->form_validation->run() === FALSE){ 
+  
+   $this->load->view('cat_update', $data); 
+   
+  }  
+  else { 
+   $this->Category_Model->update_category($id); 
+   redirect('category'); 
+  } 
+ } 
+ public function delete($id) 
+ { 
+  $this->Category_Model->delete_category($id); 
+  redirect('category'); 
+ }
 public function create() 
     {
         // Judul Halaman
@@ -39,8 +75,9 @@ public function create()
             $this->load->view('cat_create', $data);
            
         } else {
-            $this->Category_Model->create_category();
+            $this->Category_Model->cat_create();
             redirect('category');
         }
     }
+
 }
