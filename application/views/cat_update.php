@@ -27,6 +27,7 @@
       </div>
     </nav>
     <main role="main" class="container">
+     
       <?php echo validation_errors() ?> 
      <?php echo form_open( 'category/update/'.$cat_update['cat_id'], array('class' => 'needs-validation', 'novalidate' => '') ); ?> 
  <div class="form-group"> 
