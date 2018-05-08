@@ -20,11 +20,15 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url("index.php/Blog") ?>">Blog</a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url("index.php/Category") ?>">Category</a>
+          </li>
          
         </ul>
         
       </div>
     </nav>
+     <a href="<?php echo base_url("index.php/Blog/add_view") ?>" class="btn btn-primary">Tambah Blog</a>
     <main role="main" class="container">
 <ul class="list-unstyled">
   <?php foreach ($records as $key => $value): ?>
@@ -35,16 +39,21 @@
       <h5 class="mt-0 mb-1"><?php echo $value['title'] ?></h5>
       <?php echo $value['content'] ?>
       <br>
+
+    <a class="btn btn-sm btn-success" href="<?php echo base_url('index.php/Blog/update_view/'.$value['id']) ?>">Update </a>
+      <a class="btn btn-sm btn-danger" href="<?php echo base_url('index.php/Blog/delete_action/'.$value['id']) ?>">Delete </a>
       <a href="<?php echo base_url('index.php/Blog/byId/'.$value['id']) ?>">View Details</a>
     </div>
   </li>
   <?php endforeach ?>
+  
 </ul>
-
+<?php  
+        if(isset($links)){ 
+          echo $links; 
+        } ?>
     </main>
-    <a href="<?php echo base_url("index.php/Blog/add_view") ?>" class="btn btn-primary">Tambah Blog</a>
-    <a class="btn btn-sm btn-success" href="<?php echo base_url('index.php/Blog/update_view/'.$value['id']) ?>">Update </a>
-      <a class="btn btn-sm btn-danger" href="<?php echo base_url('index.php/Blog/delete_action/'.$value['id']) ?>">Delete </a>
+   
       
 <script src="https://code.jquery.com/<jquery-3 class="2 1 slim m"></jquery-3>in.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
