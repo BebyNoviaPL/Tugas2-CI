@@ -1,6 +1,7 @@
 <?php echo form_open('user/login'); ?>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+<main role="main" class="container">  
+        <div class="row-justify-content-md-center">
+            
             <h1 class="text-center"><?php echo $page_title; ?></h1>
             <div class="form-group">
                 <input type="text" name="username" class="form-control" placeholder="Masukkan Username" required autofocus>
@@ -9,6 +10,7 @@
                 <input type="password" name="password" class="form-control" placeholder="Masukkan Password" required>
             </div>
             <button type="submit" class="btn btn-warning btn-block">Login</button>
+            
         </div>
-    </div>
+</main>
 <?php echo form_close(); ?>

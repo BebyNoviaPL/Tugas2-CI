@@ -40,7 +40,12 @@ class category extends CI_Controller{
   public function index()
   {
     $data['cat_read'] = $this->Category_model->read_category();
+    $this->load->view('header'); 
+
+ 
     $this->load->view('cat_read',$data);
+     
+    $this->load->view('footer');
   }
 
   public function update($id)
@@ -60,9 +65,11 @@ class category extends CI_Controller{
     );
     $data['cat_update'] = $this->Category_model->read_category($id)[0];
     if($this->form_validation->run() === FALSE){
-  
+  $this->load->view('header'); 
+
       $this->load->view('cat_update', $data);
-    
+    $this->load->view('footer');
+
     } 
     else {
       $this->Category_model->update_category($id);
