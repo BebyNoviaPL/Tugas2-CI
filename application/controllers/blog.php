@@ -26,6 +26,12 @@ $this->load->view('footer');
       } 
   
      public function add_view() {
+      if ($this->session->userdata('level')==0) {
+           $_SESSION=null;
+// Set message
+          $this->session->set_flashdata('userTidakBerhak', 'Anda Tidak Berhak Menambah Data Blog Baru! Sesi Berakhir!');
+           redirect('user/login');
+        }
         $data['error'] = ""; 
   $this->load->helper(array('form', 'url'));
   $this->load->library('form_validation');

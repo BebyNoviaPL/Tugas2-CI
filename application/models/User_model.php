@@ -1,8 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
-	
 	 public function register($enc_password){
        // Array data user
        $data = array(
@@ -16,6 +15,7 @@ class User_model extends CI_Model {
        // Insert user
        return $this->db->insert('users', $data);
    }
+   
    // Proses login user
    public function login($username, $password){
        // Validasi
@@ -25,8 +25,10 @@ class User_model extends CI_Model {
        $result = $this->db->get('users');
 
 
-       if($result->num_rows() == 1){
-           return $result->row(0)->user_id;
+        if($result->num_rows() == 1){
+           $data['user_id'] = $result->row(0)->user_id;
+           $data['level'] = $result->row(0)->level;
+           return $data;
        } else {
            return false;
        }
