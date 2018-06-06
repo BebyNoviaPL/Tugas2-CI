@@ -32,6 +32,7 @@
           <div class="btn-group" role="group" aria-label="Data baru">
         <?php echo anchor('User/register', 'Sign Up', array('class' => 'btn btn-outline-light')); ?>
         <?php echo anchor('User/login', 'Login', array('class' => 'btn btn-outline-light')); ?>
+        <?php echo anchor('User/logout', 'Logout', array('class' => 'btn btn-outline-light')); ?>
           </div>
         <?php endif; ?>
 

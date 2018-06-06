@@ -64,7 +64,7 @@ class User extends CI_Controller {
 
         // Login user
         $user_id = $this->User_model->login($username, $password);
-        $level = $this->User_model->getLevel($username, $password);
+       // $level = $this->User_model->getLevel($username, $password);
         if($user_id){
         // Buat session
         $user_data = array(
