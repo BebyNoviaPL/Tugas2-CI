@@ -20,9 +20,9 @@ class blog extends CI_Controller {
 
    $data['links'] = $this->pagination->create_links(); 
   } 
-  $this->load->view('header'); 
+  $this->load->view('templates/header'); 
   $this->load->view('blog_list',$data); 
-$this->load->view('footer'); 
+$this->load->view('templates/footer'); 
       } 
   
      public function add_view() {
@@ -40,7 +40,9 @@ $this->load->view('footer');
   $this->form_validation->set_rules('title', 'Title', 'required');
   if ($this->form_validation->run() == FALSE)
   {
-   $this->load->view('blog_add_view',$data); 
+    $this->load->view('templates/header');
+   $this->load->view('blog_add_view',$data);
+   $this->load->view('templates/footer'); 
   }
   else
   {
@@ -53,8 +55,10 @@ $this->load->view('footer');
    $this->upload->initialize($config); 
 
    if ( ! $this->upload->do_upload('image_file')) { 
-    $error = array('error' => $this->upload->display_errors());  
+    $error = array('error' => $this->upload->display_errors()); 
+    $this->load->view('templates/header'); 
     $this->load->view('blog_add_view', $error);  
+    $this->load->view('templates/footer');
    } 
 
    else {  
@@ -84,7 +88,9 @@ $this->load->view('footer');
          
          if ( ! $this->upload->do_upload('image_file')) {
             $error = array('error' => $this->upload->display_errors()); 
-            $this->load->view('blog_add_view', $error); 
+            $this->load->view('templates/header');
+            $this->load->view('blog_add_view', $error);
+            $this->load->view('templates/footer'); 
          }
          
          else { 
@@ -105,7 +111,9 @@ $this->load->view('footer');
 
       public function byId($id){
      $data['records'] = $this->Blog_model->getOne($id); 
-         $this->load->view('blog_view',$data); 
+     $this->load->view('templates/header');
+         $this->load->view('blog_view',$data);
+         $this->load->view('templates/footer'); 
    }
    public function update_view($id) {
   $data['error'] = ""; 
@@ -117,7 +125,9 @@ $this->load->view('footer');
   $data['records'] = $this->Blog_model->getOne($id);
   if ($this->form_validation->run() == FALSE)
   {
-   $this->load->view('blog_update_view',$data); 
+    $this->load->view('templates/header');
+   $this->load->view('blog_update_view',$data);
+   $this->load->view('templates/footer'); 
   }
   else
   {
@@ -130,8 +140,10 @@ $this->load->view('footer');
    $this->upload->initialize($config); 
 
    if ( ! $this->upload->do_upload('image_file')) { 
-    $data['error'] = $this->upload->display_errors();  
+    $data['error'] = $this->upload->display_errors();
+    $this->load->view('templates/header');  
     $this->load->view('blog_update_view', $data);  
+    $this->load->view('templates/footer'); 
    }
 
    else {  
