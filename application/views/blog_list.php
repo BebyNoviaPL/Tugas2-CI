@@ -1,7 +1,7 @@
 
     <main role="main" class="container">
-      <?php if ($this->session->userdata('level') == 1): ?>
-        <a href="<?php echo base_url("index.php/Blog/add_view") ?>" class="btn btn-primary">Tambah Blog</a>
+      <?php if ($this->session->userdata('logged_in')): ?>
+        <a href="<?php echo base_url("index.php/Blog/tambah") ?>" class="btn btn-primary">Tambah Blog</a>
       <?php endif ?>
       <ul class="list-unstyled">
   <?php foreach ($records as $key => $value): ?>
@@ -13,10 +13,6 @@
       <?php echo $value['content'] ?>
       <br>
       <a href="<?php echo base_url('index.php/Blog/byId/'.$value['id']) ?>">View Details</a>
-      <?php if ($this->session->userdata('level') == 1): ?>
-      <a class="btn btn-sm btn-success" href="<?php echo base_url('index.php/Blog/update_view/'.$value['id']) ?>">Update </a>
-      <a class="btn btn-sm btn-danger" href="<?php echo base_url('index.php/Blog/delete_action/'.$value['id']) ?>">Delete </a>
-      <?php endif ?>
     </div>
   </li>
 <?php endforeach ?>

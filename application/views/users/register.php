@@ -1,4 +1,5 @@
 <?php echo form_open('user/register', array('class' => 'needs-validation', 'novalidate' => '')); ?> 
+<?php echo validation_errors(); ?>
 <main role="main" class="container"> 
    <div class="form-group"> 
        <label>Nama Lengkap</label> 
@@ -24,14 +25,22 @@
        <label>Password</label> 
        <input type="text" class="form-control" name="password" placeholder="Password" value="<?php echo set_value('password') ?>"> 
    </div> 
-   <div class="form-group"> 
-      <label>Level</label> 
-       <select name="level" id="" class="form-control">
-         <?php foreach ($this->db->get('level')->result() as $key => $value): ?>
-           <option value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
-         <?php endforeach ?>
-       </select>
 
+  <div class="form-group">
+  <label>Konfirmasi Password</label>
+ <input type="text" class="form-control" name="password2" placeholder="Konfirmasi Password" value="<?php echo set_value('password') ?>">
+  </div>
+
+   <div class="form-group">
+       <label for="">Membership</label>
+       <div class="form-check">
+           <input class="form-check-input" type="radio" name="membership" id="goldmember" value="2" checked>
+           <label class="form-check-label" for="goldmember">Gold</label>
+       </div>
+       <div class="form-check">
+           <input class="form-check-input" type="radio" name="membership" id="silvermember" value="3">
+           <label class="form-check-label" for="silvermember">Silver</label>
+       </div>
    </div>
    <button type="submit" class="btn btn-primary btn-block">Daftar</button>
    </main> 
@@ -41,3 +50,4 @@
   } ); 
 </script> 
 <?php echo form_close(); ?>
+<?php $this->load->view('templates/footer'); ?>
